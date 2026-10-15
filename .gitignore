@@ -1,0 +1,5 @@
+yellow_tripdata_2024-01.parquet
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+**/.streamlit/secrets.toml
