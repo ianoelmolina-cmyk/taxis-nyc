@@ -4,3 +4,4 @@ taxi_zone_lookup.csv
 __pycache__/
 .ipynb_checkpoints/
 **/.streamlit/secrets.toml
+*.bak
