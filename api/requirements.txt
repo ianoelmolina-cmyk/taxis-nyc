@@ -1,2 +1,7 @@
 fastapi
 uvicorn
+xgboost==3.4.1
+pandas
+pyarrow
+numpy
+scikit-learn
