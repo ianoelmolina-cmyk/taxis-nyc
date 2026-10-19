@@ -18,4 +18,4 @@
 4. Levantar la API (desde la carpeta `api`): `cd api` y luego `python -m uvicorn main:app --reload`
    (queda en `http://localhost:8000/docs`)
 5. Crear `app/.streamlit/secrets.toml` con `API_URL = "http://localhost:8000"`
-6. Levantar la app, en **otra terminal** con el entorno activado: `cd app` y luego `streamlit run streamlit_app.py`
+6. Levantar la app, en **otra terminal** con el entorno activado: `cd app` y luego `streamlit run streamlit_app.py`git
