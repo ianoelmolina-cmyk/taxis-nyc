@@ -1,0 +1,68 @@
+{
+  "mae_modelo": 11.97450363559047,
+  "mae_semana": 11.881773399014778,
+  "mae_ayer": 21.286330049261085,
+  "cobertura": 0.8955254515599343,
+  "horas_evaluadas": 9744,
+  "zonas": 58,
+  "calibracion": {
+    "0.1": 0.07173645320197045,
+    "0.2": 0.17467159277504105,
+    "0.3": 0.27873563218390807,
+    "0.4": 0.3817733990147783,
+    "0.5": 0.4965106732348112,
+    "0.6": 0.6122742200328407,
+    "0.7": 0.7300903119868637,
+    "0.8": 0.8494458128078818,
+    "0.9": 0.9568965517241379
+  },
+  "error_por_grupo": [
+    {
+      "nombre_grupo": "Aeropuertos",
+      "mean": 18.36980890782757,
+      "count": 504
+    },
+    {
+      "nombre_grupo": "Barrios periféricos",
+      "mean": 2.4933535224131664,
+      "count": 672
+    },
+    {
+      "nombre_grupo": "Manhattan central",
+      "mean": 12.767881717155007,
+      "count": 7224
+    },
+    {
+      "nombre_grupo": "Vida nocturna",
+      "mean": 10.052432026680824,
+      "count": 1344
+    }
+  ],
+  "zonas_mas_error": [
+    {
+      "Zone": "Penn Station/Madison Sq West",
+      "Borough": "Manhattan",
+      "error": 30.328421283335913
+    },
+    {
+      "Zone": "Upper East Side South",
+      "Borough": "Manhattan",
+      "error": 29.805687424682436
+    },
+    {
+      "Zone": "JFK Airport",
+      "Borough": "Queens",
+      "error": 27.901624602930887
+    },
+    {
+      "Zone": "Midtown Center",
+      "Borough": "Manhattan",
+      "error": 27.200500387521018
+    },
+    {
+      "Zone": "Lincoln Square East",
+      "Borough": "Manhattan",
+      "error": 26.828115400813875
+    }
+  ]
+}
