@@ -43,3 +43,22 @@ st.dataframe(detalle[["Zone", "Borough", "nombre_grupo", "viajes_dia", "dist_med
     "pct_22_5": st.column_config.ProgressColumn("Viajes de noche", min_value=0, max_value=1, format="percent"),
     "viajes_dia": st.column_config.NumberColumn("Viajes al día", format="%.0f")
 }, hide_index=True)
+
+with st.expander("¿Por qué 5 grupos?"):
+    silueta = pd.DataFrame({
+        "k": [2, 3, 4, 5, 6, 7],
+        "silueta": [0.3456669406080788, 0.38227997327170166, 0.41010507228593246, 0.42374349064028133, 0.39186236586099077, 0.38028398216228626],
+    })
+    silueta["silueta"] = silueta["silueta"].round(3)
+
+    fig_k = px.line(silueta, x="k", y="silueta", markers=True)
+    st.plotly_chart(fig_k, use_container_width=True)
+
+    k_elegido = int(silueta.loc[silueta["silueta"].idxmax(), "k"])
+    mejor = silueta["silueta"].max()
+
+    st.write(
+        f"Se eligió k = {k_elegido} porque tiene el coeficiente de silueta más alto ({mejor:.3f}). "
+        "Los dos ejes del gráfico conservan el 65.9% de la variación de las 8 variables "
+        "(38.8% el primero y 27.1% el segundo)."
+    )
