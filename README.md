@@ -14,6 +14,7 @@
 ### Versión publicada
 - **API (Render):** <https://taxis-nyc-api.onrender.com/docs>. Si estaba inactiva, puede tardar cerca de un minuto en responder.
 - **App (Streamlit):** <https://taxis-nyc-seppcspqfvxszqbtulds8m.streamlit.app>
+-**Repositorio (github):** <https://github.com/ianoelmolina-cmyk/taxis-nyc/tree/main/api>
 
 ### Correr el proyecto en local
 1. Clonar el repositorio: git clone https://github.com/ianoelmolina-cmyk/taxis-nyc.git
