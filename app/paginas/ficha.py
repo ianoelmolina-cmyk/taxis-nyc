@@ -25,17 +25,28 @@ c1.metric("Error del modelo", f"{f['mae_modelo']:.1f} viajes/hora", border=True)
 c2.metric("Cobertura del rango 10%-90%", f"{f['cobertura']:.1%}", border=True)
 c3.metric("Horas-zona evaluadas",f"{f['horas_evaluadas']}" , border=True)
 
-reglas = pd.DataFrame({"regla": ["Modelo(mediana)", "Igual que hace una semana", "Igual que ayer"], 
-                       "error": [f["mae_modelo"], f["mae_semana"], f["mae_ayer"]]})
-st.plotly_chart(px.bar(reglas, x="error", y="regla", orientation="h"), use_container_width=True)
-st.write(f"el modelo (11.97) queda casi igual que “igual que hace una semana” (11.88), una diferencia de unos 0.09 viajes por hora, "
-"y mucho mejor que “igual que ayer” (21.29). Su valor está en el rango de incertidumbre, que la regla simple no da, "
-"y ese rango cubre cerca del 90% de los casos, más del 80% prometido.")
-
-# 3. Dónde se equivoca más
 st.subheader("Dónde se equivoca más")
-st.plotly_chart(px.bar(pd.DataFrame(f["error_por_grupo"]), x="mean", y="nombre_grupo", orientation="h"), use_container_width=True)
-st.dataframe(pd.DataFrame(f["zonas_mas_error"]), hide_index=True)
+izq, der = st.columns(2)
+
+with izq:
+    reglas = pd.DataFrame({"regla": ["Modelo(mediana)", "Igual que hace una semana", "Igual que ayer"], 
+                       "error": [f["mae_modelo"], f["mae_semana"], f["mae_ayer"]]})
+    st.plotly_chart(px.bar(reglas, x="error", y="regla", orientation="h"), use_container_width=True)
+    st.write(
+    f"El modelo ({f['mae_modelo']:.2f}) queda casi igual que “igual que hace una semana” ({f['mae_semana']:.2f}), "
+    f"una diferencia de unos {abs(f['mae_semana'] - f['mae_modelo']):.2f} viajes por hora, "
+    f"y mucho mejor que “igual que ayer” ({f['mae_ayer']:.2f}). "
+    "Su valor está en el rango de incertidumbre, que la regla simple no da, "
+    f"y ese rango cubre cerca del {f['cobertura']:.0%} de los casos, más del 80% prometido.")
+
+
+with der:
+    # 3. Dónde se equivoca más
+    st.plotly_chart(px.bar(pd.DataFrame(f["error_por_grupo"]), x="mean", y="nombre_grupo", orientation="h"), use_container_width=True)
+    st.dataframe(pd.DataFrame(f["zonas_mas_error"]), hide_index=True)
+
+
+
 
 # 4. Limitaciones y usos no recomendados
 st.subheader("Limitaciones")
